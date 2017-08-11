@@ -1,0 +1,14 @@
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\bin\Debug\SmashTracker.exe.config
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\bin\Debug\SmashTracker.exe
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\bin\Debug\SmashTracker.pdb
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker.csprojResolveAssemblyReference.cache
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\MainWindow.g.cs
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\App.g.cs
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker_MarkupCompile.cache
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker_MarkupCompile.lref
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\MainWindow.baml
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker.g.resources
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker.Properties.Resources.resources
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker.csproj.GenerateResource.Cache
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker.exe
+C:\Code\SmashTournamentTool\SmashTracker\SmashTracker\obj\Debug\SmashTracker.pdb

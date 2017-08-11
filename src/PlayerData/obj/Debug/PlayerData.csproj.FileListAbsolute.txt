@@ -1,0 +1,15 @@
+C:\Code\SmashTournamentTool\SmashTracker\src\PlayerData\obj\Debug\PlayerData.csprojResolveAssemblyReference.cache
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\PlayerData.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\PlayerData.pdb
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\nunit.framework.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\nunit.framework.xml
+C:\Code\SmashTournamentTool\src\PlayerData\obj\Debug\PlayerData.csprojResolveAssemblyReference.cache
+C:\Code\SmashTournamentTool\src\PlayerData\obj\Debug\PlayerData.dll
+C:\Code\SmashTournamentTool\src\PlayerData\obj\Debug\PlayerData.pdb
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\NUnit3.TestAdapter.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\nunit.engine.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\nunit.engine.api.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.Rocks.dll
