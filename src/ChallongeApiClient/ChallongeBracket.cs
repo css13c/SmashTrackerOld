@@ -1,12 +1,21 @@
 ﻿using System.Collections.ObjectModel;
+using System.Xml.Linq;
 
 namespace ChallongeApiClient
 {
-	class ChallongeBracket
+	public class ChallongeBracket
 	{
-		int Id { get; set; }
-		ReadOnlyDictionary<int, ChallongeMatch> Matches { get; set; }
-		ReadOnlyDictionary<int, ChallongePlayer> Players { get; set; }
-		BracketType BracketType { get; set; }
+		public ChallongeBracket(string id, ReadOnlyDictionary<string, ChallongeMatch> matches, ReadOnlyDictionary<string, ChallongePlayer> players, BracketType bracketType)
+		{
+			Id = id;
+			Matches = matches;
+			Players = players;
+			BracketType = bracketType;
+		}
+
+		public string Id { get; set; }
+		public ReadOnlyDictionary<string, ChallongeMatch> Matches { get; set; }
+		public ReadOnlyDictionary<string, ChallongePlayer> Players { get; set; }
+		public BracketType BracketType { get; set; }
 	}
 }

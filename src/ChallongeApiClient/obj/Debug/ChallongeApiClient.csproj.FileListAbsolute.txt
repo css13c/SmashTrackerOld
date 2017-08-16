@@ -1,0 +1,14 @@
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\ChallongeApiClient.dll.config
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\ChallongeApiClient.dll
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\ChallongeApiClient.pdb
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\Newtonsoft.Json.dll
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\RestSharp.dll
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\System.Net.Http.Formatting.dll
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\Newtonsoft.Json.xml
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\RestSharp.xml
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\System.Net.Http.Formatting.xml
+E:\Code\SmashTracker\src\ChallongeApiClient\obj\Debug\ChallongeApiClient.csprojResolveAssemblyReference.cache
+E:\Code\SmashTracker\src\ChallongeApiClient\obj\Debug\ChallongeApiClient.dll
+E:\Code\SmashTracker\src\ChallongeApiClient\obj\Debug\ChallongeApiClient.pdb
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\SmashTracker.Utility.dll
+E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\SmashTracker.Utility.pdb

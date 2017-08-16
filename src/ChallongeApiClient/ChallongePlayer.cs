@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ChallongeApiClient
 {
-	class ChallongePlayer
+	public class ChallongePlayer
 	{
-		int Id { get; set; }
-		string Tag { get; set; }
+		public ChallongePlayer(string id, string tag)
+		{
+			Id = id;
+			Tag = tag;
+		}
+
+		public string Id { get; set; }
+		public string Tag { get; set; }
 	}
 }

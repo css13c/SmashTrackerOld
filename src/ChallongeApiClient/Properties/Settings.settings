@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ChallongeApiClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BaseUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://FrostedTips:wtFDFL0qwp2cnQSoECkxNmzhNyhz7qj2bfX6D0jz@api.challonge.com/v1/tournaments/</Value>
+    </Setting>
+    <Setting Name="Username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FrostedTips</Value>
+    </Setting>
+    <Setting Name="ApiKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">wtFDFL0qwp2cnQSoECkxNmzhNyhz7qj2bfX6D0jz</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

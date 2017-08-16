@@ -13,3 +13,17 @@ C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.dll
 C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Code\SmashTournamentTool\src\PlayerData\bin\Debug\Mono.Cecil.Rocks.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\NUnit3.TestAdapter.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\nunit.engine.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\nunit.engine.api.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\Mono.Cecil.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\Mono.Cecil.Pdb.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\Mono.Cecil.Mdb.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\Mono.Cecil.Rocks.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\PlayerData.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\PlayerData.pdb
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\nunit.framework.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\nunit.framework.xml
+E:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.csprojResolveAssemblyReference.cache
+E:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.dll
+E:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.pdb
