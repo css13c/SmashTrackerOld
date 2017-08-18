@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="SmashTracker.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmashTracker"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Button x:Name="TournamentsButton" Content="Tournaments" HorizontalAlignment="Left" Margin="87,121,0,0" VerticalAlignment="Top" Width="121" Height="32" Click="Tournaments_Click"/>
+        <Button x:Name="PlayersButton" Content="Players" HorizontalAlignment="Left" Margin="87,189,0,0" VerticalAlignment="Top" Width="121" Height="32" Click="Tournaments_Click"/>
+        <Label x:Name="TitleLabel" Content="Smash Tracker" HorizontalAlignment="Left" Height="40" Margin="67,19,0,0" VerticalAlignment="Top" Width="163" FontSize="24"/>
+        <Separator HorizontalAlignment="Left" Height="17" Margin="38,50,0,0" VerticalAlignment="Top" Width="222"/>
+
+    </Grid>
+</UserControl>
