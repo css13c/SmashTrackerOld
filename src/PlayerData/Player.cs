@@ -5,7 +5,7 @@ namespace PlayerData
 {
 	public class Player
 	{
-		public Player(int id, string name, ReadOnlyCollection<string> tags, double rating, ReadOnlyCollection<Character> characters)
+		public Player(int id, string name, List<string> tags, double rating, List<Character> characters)
 		{
 			Id = id;
 			Name = name;
@@ -14,18 +14,24 @@ namespace PlayerData
 			Characters = characters;
 		}
 
-		public int Id { get; }
-		public string Name { get; private set; }
-		public ReadOnlyCollection<string> Tags { get; private set; }
-		public double Rating { get; private set; }
-		public ReadOnlyCollection<Character> Characters { get; private set; }
+		public Player()
+		{
+			Tags = new List<string>();
+			Characters = new List<Character>();
+		}
+
+		public int Id { get; set; }
+		public string Name { get;  set; }
+		public List<string> Tags { get;  set; }
+		public double Rating { get;  set; }
+		public List<Character> Characters { get;  set; }
 
 		public void AddCharacter(Character character)
 		{
 			Characters = new List<Character>(Characters)
 			{
 				character
-			}.AsReadOnly();
+			};
 		}
 
 		public void AddTag(string tag)
@@ -33,7 +39,7 @@ namespace PlayerData
 			Tags = new List<string>(Tags)
 			{
 				tag
-			}.AsReadOnly();
+			};
 		}
 
 		void ChangeName(string name)

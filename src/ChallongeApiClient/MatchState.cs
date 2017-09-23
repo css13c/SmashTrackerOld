@@ -1,4 +1,7 @@
-﻿namespace ChallongeApiClient
+﻿using System;
+using Newtonsoft.Json;
+
+namespace ChallongeApiClient
 {
 	public enum MatchState
 	{
@@ -25,6 +28,25 @@
 				default:
 					return "all";
 			}
+		}
+	}
+
+	public class MatchStateConverter : JsonConverter
+	{
+		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+		{
+			throw new NotImplementedException();
+		}
+
+		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+		{
+			string enumString = (string)reader.Value;
+			return Enum.Parse(typeof(MatchState), enumString, true);
+		}
+
+		public override bool CanConvert(Type objectType)
+		{
+			return objectType == typeof(string);
 		}
 	}
 }
