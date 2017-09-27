@@ -25,7 +25,7 @@ namespace SmashTracker.Data.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SmashTrackerData.sqlite;Version=3;FKSupport=True;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=C:/Code/SmashTrackerData.sqlite;Version=3;")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));

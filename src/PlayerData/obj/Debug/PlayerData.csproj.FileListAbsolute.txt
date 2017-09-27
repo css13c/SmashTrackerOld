@@ -20,3 +20,10 @@ E:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.dll
 E:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.pdb
 E:\Code\SmashTracker\src\PlayerData\bin\Debug\SmashTracker.Utility.dll
 E:\Code\SmashTracker\src\PlayerData\bin\Debug\SmashTracker.Utility.pdb
+C:\Code\SmashTracker\src\PlayerData\bin\Debug\PlayerData.dll
+C:\Code\SmashTracker\src\PlayerData\bin\Debug\PlayerData.pdb
+C:\Code\SmashTracker\src\PlayerData\bin\Debug\SmashTracker.Utility.dll
+C:\Code\SmashTracker\src\PlayerData\bin\Debug\SmashTracker.Utility.pdb
+C:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.csprojResolveAssemblyReference.cache
+C:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.dll
+C:\Code\SmashTracker\src\PlayerData\obj\Debug\PlayerData.pdb

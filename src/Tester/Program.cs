@@ -14,12 +14,47 @@ namespace Tester
 		static void Main(string[] args)
 		{
 			PlayerDatabase pd = new PlayerDatabase();
-			ChallongeClient client = new ChallongeClient();
+			List<Player> playerList = new List<Player>();
 
-			pd.AddPlayer("Connor", 4.45, Character.Fox, "Tipzz");
-			var pr = pd.GetPR(1);
+			bool isInserted = true;
+			bool addedChar = false;
+			if (!isInserted)
+			{
+				pd.AddPlayer("Connor", 4.45, Character.Fox, "Tipzz");
+				pd.AddPlayer("Swee", 4.45, Character.Fox, "ff");
+				pd.AddPlayer("Crit", 2.12, Character.Charizard, "aa");
+			}
 
-			Console.WriteLine($"{pr.Single().Name}");
+			Console.WriteLine("Charizard Players: ");
+			foreach (var p in pd.GetPlayersOfCharacter(Character.Charizard))
+			{
+				Console.WriteLine($"Name: {p.Name}, Tag: {p.Tags.First()}");
+				if (!playerList.Any(s => p.Id == s.Id))
+					playerList.Add(p);
+			}
+
+			Console.WriteLine("Fox Players: ");
+			foreach (var p in pd.GetPlayersOfCharacter(Character.Fox))
+			{
+				Console.WriteLine($"Name: {p.Name}, Tag: {p.Tags.First()}");
+				if (!playerList.Any(s => p.Id == s.Id))
+					playerList.Add(p);
+			}
+
+			if (!addedChar)
+			{
+				var id = playerList.Where(p => p.Name == "Connor").Single().Id;
+				pd.AddCharacter(id, Character.Charizard);
+			}
+
+			Console.WriteLine("Updated Charizard Players: ");
+			foreach (var p in pd.GetPlayersOfCharacter(Character.Charizard))
+			{
+				Console.WriteLine($"Name: {p.Name}, Tag: {p.Tags.First()}");
+				if (!playerList.Any(s => p.Id == s.Id))
+					playerList.Add(p);
+			}
+
 			Console.Read();
 		}
 	}
