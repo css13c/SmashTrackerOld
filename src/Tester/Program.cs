@@ -16,7 +16,7 @@ namespace Tester
 			PlayerDatabase pd = new PlayerDatabase();
 			List<Player> playerList = new List<Player>();
 
-			bool isInserted = true;
+			bool isInserted = false;
 			bool addedChar = false;
 			if (!isInserted)
 			{
