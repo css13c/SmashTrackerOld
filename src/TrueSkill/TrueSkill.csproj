@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TrueSkillSettings.cs" />
+    <Compile Include="GameResult.cs" />
+    <Compile Include="GaussianDistribution.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

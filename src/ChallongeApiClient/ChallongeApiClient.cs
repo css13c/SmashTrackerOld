@@ -164,7 +164,7 @@ namespace ChallongeApiClient
 
 			foreach(var player in playersToAdd)
 			{
-				request.Append($"{nameAtt}={player}&{seedAtt}={seedCounter++}");
+				request.Append($"{nameAtt}={player}&{seedAtt}={seedCounter++}&");
 			}
 
 			var response = m_client.Execute(new RestRequest(request.ToString()));

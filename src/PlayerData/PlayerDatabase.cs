@@ -68,7 +68,7 @@ LIMIT @limit;
 			using (var dbConnection = new SQLiteConnection(Settings.Default.ConnectionString).OpenAndReturn())
 			{
 				dbConnection.Query<DbPlayer, DbPlayerCharacter, DbPlayerTag, Player>(sql, (p, c, t) =>
-				{
+				{ 
 					Player player;
 					if (!lookup.TryGetValue(p.Id, out player))
 					{
