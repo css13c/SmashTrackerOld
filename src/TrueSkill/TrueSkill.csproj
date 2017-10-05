@@ -40,11 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TrueSkillFunctions.cs" />
     <Compile Include="TrueSkillSettings.cs" />
-    <Compile Include="GameResult.cs" />
     <Compile Include="GaussianDistribution.cs" />
     <Compile Include="Rating.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmashTracker.Utility\SmashTracker.Utility.csproj">
+      <Project>{5DC3826B-2FAD-4594-8599-60DA641CC352}</Project>
+      <Name>SmashTracker.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

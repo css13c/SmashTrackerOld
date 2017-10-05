@@ -15,14 +15,14 @@ namespace TrueSkill
 		public const double InitialMean = 25;
 		public const double InitialStandardDeviation = InitialMean / 3;
 
-		public st3atic Rating DefaultRating()
+		public static Rating DefaultRating()
 		{
 			return new Rating(InitialMean, InitialStandardDeviation);
 		}
 
 		public static double GetDrawMargin()
 		{
-			// This gets the draw margin from the Draw Probability. Formula pulled from http://www.moserware.com/assets/computing-your-skill/The%20Math%20Behind%20TrueSkill.pdf
+			// This gets the draw margin from the Draw Probability. Formula pulled from http://www.moserware.com/assets/computing-your-skill/The%20Math%20Behind%20TrueSkill.pdf, page 15
 			return GaussianDistribution.ICDF(1 / 2, 0, 1) * Math.Sqrt(1 + 1) * Beta;
 		}
 	}

@@ -14,8 +14,8 @@ namespace TrueSkill
 			StandardDeviation = standardDeviation;
 		}
 
-		public double Mean { get; private set; }
-		public double StandardDeviation { get; private set; }
+		public double Mean { get; set; }
+		public double StandardDeviation { get; set; }
 
 		// Multiply the standard deviation by this number to get a conservative estimate of the player's skill.
 		public const int ConservativeMultiplier = 3;

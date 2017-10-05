@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Data.SQLite;
 using PlayerData;
 using System.Collections.ObjectModel;
 using Dapper;
 using SmashTracker.Utility;
-using System.IO;
 using PlayerData.Properties;
+using TrueSkill;
 
 namespace SmashTracker.Data
 {
@@ -18,13 +17,17 @@ namespace SmashTracker.Data
 			InitializeTables();
 		}
 
+		/// <summary>
+		/// Initializes the tables in the database.
+		/// </summary>
 		private void InitializeTables()
 		{
 			const string sql = @"
 CREATE TABLE IF NOT EXISTS players (
 	Id INTEGER PRIMARY KEY AUTOINCREMENT,
 	Name TEXT NOT NULL,
-	Rating REAL NOT NULL
+	RatingMean REAL NOT NULL,
+	RatingSD REAL NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS player_characters (
@@ -58,6 +61,7 @@ CREATE TABLE IF NOT EXISTS player_tags (
 SELECT * FROM players p
 INNER JOIN player_characters pc ON p.Id = pc.PlayerId
 INNER JOIN player_tags pt ON p.Id = pt.PlayerId
+INNER JOIN player_rating pr ON p.Id = pr.PlayerId
 ORDER BY p.Rating
 LIMIT @limit;
 ";
@@ -68,7 +72,7 @@ LIMIT @limit;
 			using (var dbConnection = new SQLiteConnection(Settings.Default.ConnectionString).OpenAndReturn())
 			{
 				dbConnection.Query<DbPlayer, DbPlayerCharacter, DbPlayerTag, Player>(sql, (p, c, t) =>
-				{ 
+				{
 					Player player;
 					if (!lookup.TryGetValue(p.Id, out player))
 					{
@@ -76,7 +80,7 @@ LIMIT @limit;
 						{
 							Id = p.Id,
 							Name = p.Name,
-							Rating = p.Rating
+							Rating = new Rating(p.RatingMean, p.RatingSD),
 						};
 						lookup.Add(p.Id, player);
 					}
@@ -108,7 +112,7 @@ LIMIT @limit;
 			const string sql = @"
 SELECT * FROM players p
 INNER JOIN player_characters pc ON p.Id = pc.PlayerId
-INNER JOIN player_tags pt on p.Id = pt.PlayerId
+INNER JOIN player_tags pt ON p.Id = pt.PlayerId
 WHERE pc.Character = @character;
 ";
 			var param = new DynamicParameters();
@@ -126,7 +130,7 @@ WHERE pc.Character = @character;
 						{
 							Id = p.Id,
 							Name = p.Name,
-							Rating = p.Rating
+							Rating = new Rating(p.RatingMean, p.RatingSD),
 						};
 						lookup.Add(p.Id, player);
 					}
@@ -143,8 +147,6 @@ WHERE pc.Character = @character;
 					return player;
 				}
 				, param);
-
-				dbConnection.Close();
 			}
 
 			return lookup.Values.ToReadOnlyCollection();
@@ -178,7 +180,7 @@ WHERE p.Name = @name;
 						{
 							Id = p.Id,
 							Name = p.Name,
-							Rating = p.Rating
+							Rating = new Rating(p.RatingMean, p.RatingSD),
 						};
 						lookup.Add(p.Id, player);
 					}
@@ -223,11 +225,11 @@ WHERE p.Name = @name;
 		/// <summary>
 		/// Adds a player to the database.
 		/// </summary>
-		public void AddPlayer(string addName, double addRating, Character addChar, string addTag)
+		public void AddPlayer(string addName, Rating addRating, Character addChar, string addTag)
 		{
 			const string insertSql = @"
-INSERT INTO players(Name, Rating) VALUES
-(@name, @rating);
+INSERT INTO players(Name, RatingMean, RatingSD) VALUES
+(@name, @mean, @sd);
 ";
 			const string selectSql = @"
 SELECT seq FROM sqlite_sequence 
@@ -235,7 +237,8 @@ WHERE name='players';
 ";
 			var param = new DynamicParameters();
 			param.Add("@name", addName);
-			param.Add("@rating", addRating);
+			param.Add("@mean", addRating.Mean);
+			param.Add("@sd", addRating.StandardDeviation);
 
 			int playerId;
 			using (var dbConnection = new SQLiteConnection(Settings.Default.ConnectionString).OpenAndReturn())
@@ -249,6 +252,11 @@ WHERE name='players';
 			AddTag(playerId, addTag);
 		}
 
+		/// <summary>
+		/// Adds a character to the player's character list.
+		/// </summary>
+		/// <param name="player">The id of the player.</param>
+		/// <param name="addChar">The character to add.</param>
 		public void AddCharacter(int player, Character addChar)
 		{
 			const string sql = @"
@@ -267,6 +275,11 @@ INSERT INTO player_characters(Character, PlayerId) VALUES
 			}
 		}
 
+		/// <summary>
+		/// Adds a tag to a player's tags.
+		/// </summary>
+		/// <param name="player">The id of the player.</param>
+		/// <param name="addTag">The tag to add.</param>
 		public void AddTag(int player, string addTag)
 		{
 			const string sql = @"
@@ -283,6 +296,33 @@ INSERT INTO player_tags(Tag, PlayerId) VALUES
 			}
 		}
 
+		/// <summary>
+		/// Updates the rating of the player.
+		/// </summary>
+		/// <param name="player">Identifies the player.</param>
+		public void UpdatePlayerRating(Player player)
+		{
+			const string sql = @"
+UPDATE players
+SET RatingMean = @newMean, RatingSD = @newSD
+WHERE Id = @id
+";
+			var param = new DynamicParameters();
+			param.Add("@newMean", player.Rating.Mean);
+			param.Add("@newSD", player.Rating.StandardDeviation);
+			param.Add("@id", player.Id);
+
+			using (var dbConnection = new SQLiteConnection(Settings.Default.ConnectionString).OpenAndReturn())
+			{
+				dbConnection.Execute(sql, param);
+			}
+		}
+
+		/// <summary>
+		/// Retrieves a player by his Id.
+		/// </summary>
+		/// <param name="id">The id of the player.</param>
+		/// <returns></returns>
 		private Player GetPlayerById(int id)
 		{
 			const string sql = @"
@@ -306,7 +346,7 @@ WHERE p.Id = @query;
 						{
 							Id = p.Id,
 							Name = p.Name,
-							Rating = p.Rating
+							Rating = new Rating(p.RatingMean, p.RatingSD),
 						};
 						lookup.Add(p.Id, player);
 					}
@@ -347,6 +387,7 @@ WHERE p.Id = @query;
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public double Rating { get; set; }
+		public double RatingMean { get; set; }
+		public double RatingSD { get; set; }
 	}
 }

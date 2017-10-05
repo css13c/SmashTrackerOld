@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmashTracker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TrueSkill
 {
+	// Class created using https://github.com/moserware/Skills/blob/master/Skills/Numerics/GaussianDistribution.cs as a guide.
 	public class GaussianDistribution
 	{
 		public GaussianDistribution(double mean, double standardDeviation)
@@ -37,31 +39,15 @@ namespace TrueSkill
 		// This makes the area under the graph equal to 1.
 		public double NormalizationConstant => 1 / (Math.Sqrt(2 * Math.PI) * StandardDeviation);
 
-		public static GaussianDistribution GaussianFromPrecisionMean(double precisionMean, double precision)
-		{
-			double variance = 1 / precision;
-
-			return new GaussianDistribution(precisionMean / precision, Math.Sqrt(variance), variance, precision, precisionMean);
-		}
-
-		public static GaussianDistribution operator *(GaussianDistribution x, GaussianDistribution y)
-		{
-			return GaussianFromPrecisionMean(x.PrecisionMean + y.PrecisionMean, x.Precision + y.Precision);
-		}
-
-		public static double operator -(GaussianDistribution x, GaussianDistribution y)
-		{
-			return Math.Max(Math.Abs(x.PrecisionMean - y.PrecisionMean), Math.Sqrt(Math.Abs(x.Precision - y.Precision)));
-		}
-
-		public static GaussianDistribution operator /(GaussianDistribution top, GaussianDistribution bottom)
-		{
-			return GaussianFromPrecisionMean(top.PrecisionMean - bottom.PrecisionMean, top.Precision - bottom.Precision);
-		}
-
 		public static double CDF(double x, double mean, double sd)
 		{
 			return (1 + ERF((x-mean) / (sd * Math.Sqrt(2)))) / 2;
+		}
+
+		// This returns the CDF of a normal gaussian curve
+		public static double NormCDF(double x)
+		{
+			return CDF(x, 0, 1);
 		}
 
 		public static double ICDF(double x, double mean, double sd)
@@ -112,6 +98,14 @@ namespace TrueSkill
 			return p < 1 ? x : -x;
 		}
 
+		// Assumes a standard normal distribution, where mean = 0, sd = 1.
+		public static double NormValueAt(double x)
+		{
+			var fraction = 1 / Math.Sqrt(2 * Math.PI);
+			var multFactor = Math.Exp(-0.5 * x.Squared());
+			return fraction * multFactor;
+		}
+
 		public static double[] ERFCoefficients = { -1.3026537197817094,
 			6.4196979235649026e-1, 1.9476473204185836e-2,-9.561514786808631e-3,
 			-9.46595344482036e-4, 3.66839497852761e-4, 4.2523324806907e-5,
@@ -121,13 +115,28 @@ namespace TrueSkill
 			-6.886027e-12, 8.94487e-13, 3.13092e-13, -1.12708e-13, 3.81e-16,
 			7.106e-15, -1.523e-15, -9.4e-17, 1.21e-16, -2.8e-17
 		};
-	}
 
-	static class DoubleExtensions
-	{
-		public static double Squared(this double num)
+		// Below functions are not needed for basic form of TrueSkill, but are being kept in case I decide to expand the implementation.
+		public static GaussianDistribution GaussianFromPrecisionMean(double precisionMean, double precision)
 		{
-			return num * num;
+			double variance = 1 / precision;
+
+			return new GaussianDistribution(precisionMean / precision, Math.Sqrt(variance), variance, precision, precisionMean);
+		}
+
+		public static GaussianDistribution operator *(GaussianDistribution x, GaussianDistribution y)
+		{
+			return GaussianFromPrecisionMean(x.PrecisionMean + y.PrecisionMean, x.Precision + y.Precision);
+		}
+
+		public static double operator -(GaussianDistribution x, GaussianDistribution y)
+		{
+			return Math.Max(Math.Abs(x.PrecisionMean - y.PrecisionMean), Math.Sqrt(Math.Abs(x.Precision - y.Precision)));
+		}
+
+		public static GaussianDistribution operator /(GaussianDistribution top, GaussianDistribution bottom)
+		{
+			return GaussianFromPrecisionMean(top.PrecisionMean - bottom.PrecisionMean, top.Precision - bottom.Precision);
 		}
 	}
 }
