@@ -7,6 +7,7 @@ using Dapper;
 using SmashTracker.Utility;
 using PlayerData.Properties;
 using TrueSkill;
+using System.IO;
 
 namespace SmashTracker.Data
 {
@@ -14,6 +15,12 @@ namespace SmashTracker.Data
 	{
 		public PlayerDatabase()
 		{
+			if (!File.Exists(@"C:\Users\Public\Documents\SmashTracker\SmashTrackerData.sqlite"))
+			{
+				Directory.CreateDirectory(@"C:\Users\Public\Documents\SmashTracker\");
+				SQLiteConnection.CreateFile(@"C:\Users\Public\Documents\SmashTracker\SmashTrackerData.sqlite");
+			}
+
 			InitializeTables();
 		}
 
@@ -163,7 +170,7 @@ WHERE pc.Character = @character;
 SELECT * FROM players p
 INNER JOIN player_characters pc ON p.Id = pc.PlayerId
 INNER JOIN player_tags pt ON p.Id = pt.PlayerId
-WHERE p.Name = @name;
+WHERE p.Name LIKE @name;
 ";
 			var param = new DynamicParameters();
 			param.Add("@name", query);

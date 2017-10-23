@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallongeApiClient", "src\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueSkill", "src\TrueSkill\TrueSkill.csproj", "{7CA497F8-8674-4A0A-88CF-B2CFA838EBE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "src\SmashTrackerCmd\Tester.csproj", "{EFFE7733-F767-4B9E-B7AB-6D794E0D8BA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmashTrackerCmd", "src\SmashTrackerCmd\SmashTrackerCmd.csproj", "{EFFE7733-F767-4B9E-B7AB-6D794E0D8BA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

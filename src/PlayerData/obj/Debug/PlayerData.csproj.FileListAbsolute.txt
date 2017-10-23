@@ -46,3 +46,5 @@ E:\Code\SmashTracker\src\PlayerData\bin\Debug\System.Data.SQLite.xml
 E:\Code\SmashTracker\src\PlayerData\bin\Debug\System.Data.SQLite.dll.config
 E:\Code\SmashTracker\src\PlayerData\bin\Debug\RestSharp.xml
 E:\Code\SmashTracker\src\PlayerData\bin\Debug\Newtonsoft.Json.xml
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\TrueSkill.dll
+E:\Code\SmashTracker\src\PlayerData\bin\Debug\TrueSkill.pdb
