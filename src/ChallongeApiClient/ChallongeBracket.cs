@@ -1,37 +1,43 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using SmashTracker.Utility;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Xml.Linq;
+using System.Linq;
 
 namespace ChallongeApiClient
 {
 	public class ChallongeBracket
 	{
-		public ChallongeBracket(string id, ReadOnlyDictionary<string, ChallongeMatch> matches, ReadOnlyDictionary<string, ChallongePlayer> players, BracketType bracketType)
+		public ChallongeBracket(string id, BracketType bracketType, ReadOnlyCollection<MatchWrapper> matches, ReadOnlyCollection<PlayerWrapper> participants)
 		{
 			Id = id;
-			Matches = matches;
-			Players = players;
 			BracketType = bracketType;
-			Started = false;
+			Matches = matches;
+			Participants = participants;
+
+			Initialize();
 		}
 
 		[JsonProperty("id")]
 		public string Id { get; set; }
-		public ReadOnlyDictionary<string, ChallongeMatch> Matches { get; set; }
-		public ReadOnlyDictionary<string, ChallongePlayer> Players { get; set; }
 		[JsonProperty("tournament_type")]
+		[JsonConverter(typeof(BracketTypeConverter))]
 		public BracketType BracketType { get; set; }
 		[JsonProperty("matches")]
-		public ReadOnlyCollection<ChallongeMatch> MatchList { get; set; }
+		public ReadOnlyCollection<MatchWrapper> Matches { get; set; }
 		[JsonProperty("participants")]
-		public ReadOnlyCollection<ChallongePlayer> PlayerList { get; set; }
+		public ReadOnlyCollection<PlayerWrapper> Participants { get; set; }
 		public bool Started { get; set; }
+		public ReadOnlyCollection<ChallongeMatch> MatchList { get; set; }
+		public ReadOnlyCollection<ChallongePlayer> PlayerList { get; set; }
 
-		public void Initialize()
+		private void Initialize()
 		{
-			Matches = MatchList.ToReadOnlyDictionary(m => m.Id);
-			Players = PlayerList.ToReadOnlyDictionary(p => p.Id);
+			if (Matches != null)
+				MatchList = Matches.Select(m => m.Match).ToReadOnlyCollection();
+			if (Participants != null)
+				PlayerList = Participants.Select(p => p.Player).ToReadOnlyCollection();
 		}
 	}
 }

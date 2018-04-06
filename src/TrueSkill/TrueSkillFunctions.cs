@@ -42,7 +42,7 @@ namespace TrueSkill
 			return factor1 * factor2;
 		}
 
-		public static Rating UpdateRating(this Rating selfRating, bool won, Rating opponentRating)
+		public static void UpdateRating(this Rating selfRating, bool won, Rating opponentRating)
 		{
 			var drawMargin = TrueSkillSettings.GetDrawMargin();
 			var c = Math.Sqrt(2 * TrueSkillSettings.Beta.Squared() + selfRating.StandardDeviation + opponentRating.StandardDeviation);
@@ -66,7 +66,7 @@ namespace TrueSkill
 			var newMean = selfRating.Mean + (resultMult * meanMult * v);
 			var newSd = Math.Sqrt(dynamicsVariance * (1 - sdMult * w));
 
-			return new Rating(newMean, newSd);
+			selfRating = new Rating(newMean, newSd);
 		}
 	}
 }

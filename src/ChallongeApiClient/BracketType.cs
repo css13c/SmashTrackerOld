@@ -2,8 +2,8 @@
 {
 	public enum BracketType
 	{
-		Double_Elimination,
-		Single_Elimination,
+		DoubleElimination,
+		SingleElimination,
 	}
 
 	public static class BracketTypeExtensions
@@ -12,7 +12,7 @@
 		{
 			switch(source)
 			{
-				case BracketType.Single_Elimination:
+				case BracketType.SingleElimination:
 					return "single elimination";
 				default:
 					return "double elimination";

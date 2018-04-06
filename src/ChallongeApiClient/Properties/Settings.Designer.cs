@@ -26,7 +26,7 @@ namespace ChallongeApiClient.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://FrostedTips:wtFDFL0qwp2cnQSoECkxNmzhNyhz7qj2bfX6D0jz@api.challonge.com/v1" +
-            "/tournaments/")]
+            "")]
         public string BaseUri {
             get {
                 return ((string)(this["BaseUri"]));
@@ -50,7 +50,7 @@ namespace ChallongeApiClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("wtFDFL0qwp2cnQSoECkxNmzhNyhz7qj2bfX6D0jz")]
+        [global::System.Configuration.DefaultSettingValueAttribute("sCKilCYX8rGP6JFRp4uGSf10zoZ33I7LOKJfIIAC")]
         public string ApiKey {
             get {
                 return ((string)(this["ApiKey"]));

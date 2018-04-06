@@ -75,10 +75,6 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChallongeApiClient\ChallongeApiClient.csproj">
-      <Project>{7878C436-415B-4B58-994B-1588FA8E6B4E}</Project>
-      <Name>ChallongeApiClient</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SmashTracker.Utility\SmashTracker.Utility.csproj">
       <Project>{5DC3826B-2FAD-4594-8599-60DA641CC352}</Project>
       <Name>SmashTracker.Utility</Name>

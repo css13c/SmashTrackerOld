@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TournamentRound.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,6 +64,10 @@
     <ProjectReference Include="..\PlayerData\PlayerData.csproj">
       <Project>{81ABB8A8-5330-41FA-B35E-A93A476BEDC9}</Project>
       <Name>PlayerData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmashTracker.Utility\SmashTracker.Utility.csproj">
+      <Project>{5DC3826B-2FAD-4594-8599-60DA641CC352}</Project>
+      <Name>SmashTracker.Utility</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrueSkill\TrueSkill.csproj">
       <Project>{7CA497F8-8674-4A0A-88CF-B2CFA838EBE8}</Project>
