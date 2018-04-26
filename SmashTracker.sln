@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerData", "src\PlayerData\PlayerData.csproj", "{81ABB8A8-5330-41FA-B35E-A93A476BEDC9}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrueSkill", "src\TrueSkill\TrueSkill.csproj", "{7CA497F8-8674-4A0A-88CF-B2CFA838EBE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmashTrackerCmd", "src\SmashTrackerCmd\SmashTrackerCmd.csproj", "{EFFE7733-F767-4B9E-B7AB-6D794E0D8BA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmashTrackerGUI", "src\SmashTrackerGUI\SmashTrackerGUI.csproj", "{52995CE2-ACC7-462B-9048-3D9A3CD4D5B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{EFFE7733-F767-4B9E-B7AB-6D794E0D8BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFFE7733-F767-4B9E-B7AB-6D794E0D8BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFFE7733-F767-4B9E-B7AB-6D794E0D8BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52995CE2-ACC7-462B-9048-3D9A3CD4D5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52995CE2-ACC7-462B-9048-3D9A3CD4D5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52995CE2-ACC7-462B-9048-3D9A3CD4D5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52995CE2-ACC7-462B-9048-3D9A3CD4D5B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {208EA52E-8736-4D4A-B857-005039AF4D45}
 	EndGlobalSection
 EndGlobal
