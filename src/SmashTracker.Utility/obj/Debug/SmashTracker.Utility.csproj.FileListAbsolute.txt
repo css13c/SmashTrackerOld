@@ -1,5 +1,4 @@
 E:\Code\SmashTracker\src\SmashTracker.Utility\bin\Debug\SmashTracker.Utility.dll
 E:\Code\SmashTracker\src\SmashTracker.Utility\bin\Debug\SmashTracker.Utility.pdb
-E:\Code\SmashTracker\src\SmashTracker.Utility\obj\Debug\SmashTracker.Utility.csprojResolveAssemblyReference.cache
 E:\Code\SmashTracker\src\SmashTracker.Utility\obj\Debug\SmashTracker.Utility.dll
 E:\Code\SmashTracker\src\SmashTracker.Utility\obj\Debug\SmashTracker.Utility.pdb

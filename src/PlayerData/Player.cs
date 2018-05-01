@@ -27,6 +27,10 @@ namespace PlayerData
 		public string Tag { get;  set; }
 		public Rating Rating { get;  set; }
 		public List<Character> Characters { get;  set; }
+		public String CharString
+		{
+			get { return PrintChars(); }
+		}
 
 		public override string ToString()
 		{

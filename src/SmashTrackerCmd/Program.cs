@@ -1,6 +1,5 @@
 ﻿using ChallongeApiClient;
 using PlayerData;
-using SmashTracker.Data;
 using SmashTracker.Utility;
 using System;
 using System.Collections.Generic;
