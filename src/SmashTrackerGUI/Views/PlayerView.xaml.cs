@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmashTrackerGUI
+namespace SmashTrackerGUI.Views
 {
-	/// <summary>
-	/// Interaction logic for PlayerWindow.xaml
-	/// </summary>
-	public partial class PlayerWindow : Window
-	{
-		public PlayerWindow()
-		{
-			InitializeComponent();
-		}
-	}
+    /// <summary>
+    /// Interaction logic for PlayerContent.xaml
+    /// </summary>
+    public partial class PlayerView : UserControl
+    {
+        public PlayerView()
+        {
+            InitializeComponent();
+        }
+    }
 }

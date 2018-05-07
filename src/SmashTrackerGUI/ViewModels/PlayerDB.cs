@@ -2,10 +2,11 @@
 using SmashTrackerGUI.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace SmashTrackerGUI.ViewModels
 {
-	public class PlayerDB : NotifyChange
+	public class PlayerDB : BaseViewModel
 	{
 		public PlayerDB()
 		{
@@ -44,6 +45,37 @@ namespace SmashTrackerGUI.ViewModels
 			}
 		}
 
+		private bool m_IsEditing;
+		public bool IsEditing
+		{
+			get
+			{
+				return m_IsEditing;
+			}
+			set
+			{
+				m_IsEditing = value;
+				RaisePropertyChanged();
+			}
+		}
+
+		public ReadOnlyCollection<string> SortTypes => Array.AsReadOnly<string>(Enum.GetNames(typeof(SortType)));
+
+		private SortType m_SelectedSort;
+		public SortType SelectedSort
+		{
+			get
+			{
+				return m_SelectedSort;
+			}
+			set
+			{
+				m_SelectedSort = value;
+				RaisePropertyChanged();
+				SortPlayers();
+			}
+		}
+
 		// Relay Command Variables
 		public RelayCommand Add
 		{
@@ -69,14 +101,39 @@ namespace SmashTrackerGUI.ViewModels
 
 		private void RemovePlayer()
 		{
+			db.RemovePlayer(SelectedPlayer);
 			PlayerList.Remove(SelectedPlayer);
-			// TODO: Add Remove Player function to PlayerDatabase
-			// db.RemovePlayer(SelectedPlayer);
 		}
 
 		private void EditPlayer()
 		{
 
+		}
+
+		private void SortPlayers()
+		{
+			switch(SelectedSort)
+			{
+				case SortType.Name:
+					PlayerList.OrderByDescending(p => p.Name);
+					break;
+				case SortType.Rating:
+					PlayerList.OrderByDescending(p => p.Rating);
+					break;
+				case SortType.Tag:
+					PlayerList.OrderByDescending(p => p.Tag);
+					break;
+			}
+
+			RaisePropertyChanged("PlayerList");
+		}
+
+		// Sort Values
+		public enum SortType
+		{
+			Name = 0,
+			Tag,
+			Rating
 		}
 	}
 }

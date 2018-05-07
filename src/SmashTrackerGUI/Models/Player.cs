@@ -1,11 +1,14 @@
-﻿using SmashTrackerGUI.Infrastructure;
+﻿using SmashTracker.Utility;
+using SmashTrackerGUI.Infrastructure;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 
 namespace SmashTrackerGUI.Models
 {
-	public class Player : NotifyChange
+	public class Player : BaseViewModel
 	{
 		public Player(int id, string name, string tag, Rating rating, ObservableCollection<Character> characters)
 		{

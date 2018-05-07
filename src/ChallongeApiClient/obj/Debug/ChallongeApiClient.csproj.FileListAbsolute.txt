@@ -37,3 +37,15 @@ E:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\Dapper.xml
 E:\Code\SmashTracker\src\ChallongeApiClient\obj\Debug\ChallongeApiClient.csprojResolveAssemblyReference.cache
 E:\Code\SmashTracker\src\ChallongeApiClient\obj\Debug\ChallongeApiClient.dll
 E:\Code\SmashTracker\src\ChallongeApiClient\obj\Debug\ChallongeApiClient.pdb
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\PlayerDatabase.cs
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\PlayerData.dll
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\TrueSkill.dll
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\System.Data.SQLite.dll
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\Dapper.dll
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\PlayerData.pdb
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\PlayerData.dll.config
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\TrueSkill.pdb
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\System.Data.SQLite.xml
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\System.Data.SQLite.dll.config
+C:\Code\SmashTracker\src\ChallongeApiClient\bin\Debug\Dapper.xml
+C:\Code\SmashTracker\src\ChallongeApiClient\obj\Debug\ChallongeApiClient.csproj.CoreCompileInputs.cache

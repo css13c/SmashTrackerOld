@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ConnectionString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=C:\Users\Public\Documents\SmashTracker\SmashTrackerData.sqlite;Version=3;</Value>
+      <Value Profile="(Default)">Data Source=C:\SmashTracker\SmashTrackerData.sqlite;Version=3;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

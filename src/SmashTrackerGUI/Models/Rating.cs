@@ -2,7 +2,7 @@
 
 namespace SmashTrackerGUI.Models
 {
-	public class Rating : NotifyChange
+	public class Rating : BaseViewModel
 	{
 		public Rating(double mean, double standardDeviation)
 		{

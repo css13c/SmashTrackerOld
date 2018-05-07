@@ -15,10 +15,10 @@ namespace SmashTrackerGUI.Infrastructure
 	{
 		public PlayerDatabase()
 		{
-			if (!File.Exists($@"{Environment.SpecialFolder.MyDocuments}\SmashTracker\SmashTrackerData.sqlite"))
+			if (!File.Exists($@"C:\SmashTracker\SmashTrackerData.sqlite"))
 			{
-				Directory.CreateDirectory($@"{Environment.SpecialFolder.MyDocuments}\SmashTracker\");
-				SQLiteConnection.CreateFile($@"{Environment.SpecialFolder.MyDocuments}\SmashTracker\SmashTrackerData.sqlite");
+				Directory.CreateDirectory($@"C:\SmashTracker\");
+				SQLiteConnection.CreateFile($@"C:\SmashTracker\SmashTrackerData.sqlite");
 			}
 
 			InitializeTables();
@@ -50,6 +50,61 @@ CREATE TABLE IF NOT EXISTS player_characters (
 				dbConnection.Execute(sql);
 			}
 		}
+
+		/// <summary>
+		/// Gets all players in the database.
+		/// </summary>
+		/// <returns></returns>
+		public ObservableCollection<Player> GetAllPlayers()
+		{
+			string sql = @"
+SELECT * FROM players p
+INNER JOIN player_characters pc ON p.Id = pc.PlayerId;";
+
+			var lookup = new Dictionary<int, Player>();
+			using (var dbConnection = new SQLiteConnection(Settings.Default.ConnectionString).OpenAndReturn())
+			{
+				dbConnection.Query<DbPlayer, DbPlayerCharacter, Player>(sql, (p, c) =>
+				{
+					Player player;
+					if (!lookup.TryGetValue(p.Id, out player))
+					{
+						player = new Player
+						{
+							Id = p.Id,
+							Name = p.Name,
+							Rating = new Rating(p.RatingMean, p.RatingSD),
+							Tag = p.Tag
+						};
+						lookup.Add(p.Id, player);
+					}
+
+					if (player.Characters == null)
+						player.Characters = new ObservableCollection<Character>();
+					player.Characters.Add((Character)c.Character);
+
+					return player;
+				});
+			}
+
+			return new ObservableCollection<Player>(lookup.Values.OrderBy(p => p.Rating.ConservativeRating));
+		}
+
+		public void RemovePlayer(Player player)
+		{
+			const string sql = @"
+	DELETE FROM players
+	WHERE Id = @playerId;
+";
+
+			var param = new DynamicParameters();
+			param.Add("@playerId", player.Id);
+
+			using (var dbConnection = new SQLiteConnection(Settings.Default.ConnectionString).OpenAndReturn())
+				dbConnection.Execute(sql, param);
+		}
+
+		// Possibly obselete code, non-needed functions
 
 		/// <summary>
 		/// Gets the top rated players.
@@ -91,45 +146,6 @@ LIMIT @limit;
 					return player;
 				}
 				, param);
-			}
-
-			return new ObservableCollection<Player>(lookup.Values.OrderBy(p => p.Rating.ConservativeRating));
-		}
-
-		/// <summary>
-		/// Gets all players in the database.
-		/// </summary>
-		/// <returns></returns>
-		public ObservableCollection<Player> GetAllPlayers()
-		{
-			string sql = @"
-SELECT * FROM players p
-INNER JOIN player_characters pc ON p.Id = pc.PlayerId;";
-
-			var lookup = new Dictionary<int, Player>();
-			using (var dbConnection = new SQLiteConnection(Settings.Default.ConnectionString).OpenAndReturn())
-			{
-				dbConnection.Query<DbPlayer, DbPlayerCharacter, Player>(sql, (p, c) =>
-				{
-					Player player;
-					if (!lookup.TryGetValue(p.Id, out player))
-					{
-						player = new Player
-						{
-							Id = p.Id,
-							Name = p.Name,
-							Rating = new Rating(p.RatingMean, p.RatingSD),
-							Tag = p.Tag
-						};
-						lookup.Add(p.Id, player);
-					}
-
-					if (player.Characters == null)
-						player.Characters = new ObservableCollection<Character>();
-					player.Characters.Add((Character)c.Character);
-
-					return player;
-				});
 			}
 
 			return new ObservableCollection<Player>(lookup.Values.OrderBy(p => p.Rating.ConservativeRating));

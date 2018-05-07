@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Code\SmashTracker\src\SmashTrackerGUI\obj\Debug\
+C:\Code\SmashTracker\src\SmashTrackerGUI\obj\Debug\
 SmashTrackerGUI
 none
 false
 DEBUG;TRACE
-E:\Code\SmashTracker\src\SmashTrackerGUI\App.xaml
-2-1707696022
+C:\Code\SmashTracker\src\SmashTrackerGUI\App.xaml
+5613898262
 
-21204890871
-241204236198
-MainWindow.xaml;Windows\PlayerWindow.xaml;
+30-1753217371
+24819834761
+MainWindow.xaml;Views\AddEditPlayer.xaml;Views\MainPage.xaml;Views\PlayerView.xaml;Views\TournamentView.xaml;
 
 True
 
