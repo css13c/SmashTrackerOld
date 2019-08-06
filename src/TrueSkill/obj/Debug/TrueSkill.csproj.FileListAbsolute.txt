@@ -1,7 +1,0 @@
-E:\Code\SmashTracker\src\TrueSkill\bin\Debug\TrueSkill.dll
-E:\Code\SmashTracker\src\TrueSkill\bin\Debug\TrueSkill.pdb
-E:\Code\SmashTracker\src\TrueSkill\bin\Debug\SmashTracker.Utility.dll
-E:\Code\SmashTracker\src\TrueSkill\bin\Debug\SmashTracker.Utility.pdb
-E:\Code\SmashTracker\src\TrueSkill\obj\Debug\TrueSkill.csprojResolveAssemblyReference.cache
-E:\Code\SmashTracker\src\TrueSkill\obj\Debug\TrueSkill.dll
-E:\Code\SmashTracker\src\TrueSkill\obj\Debug\TrueSkill.pdb
