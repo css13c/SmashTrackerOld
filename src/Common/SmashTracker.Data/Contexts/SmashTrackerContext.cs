@@ -1,11 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SmashTracker.Data.Entities;
-using SmashTracker.Data.Helpers;
-using SmashTracker.Data.Interfaces;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+
+using SmashTracker.Data.Entities;
+using SmashTracker.Data.Helpers;
+using SmashTracker.Data.Interfaces;
 
 namespace SmashTracker.Data.Contexts
 {

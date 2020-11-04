@@ -1,20 +1,17 @@
-﻿using AutoFixture;
-using AutoFixture.Xunit2;
+﻿using AutoFixture.Xunit2;
 using FluentAssertions;
 using SmashTracker.Engines.TrueSkill;
-using SmashTracker.Engines.TrueSkill.Interfaces;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace SmashTracker.Tests
 {
-	public class TrueSkillEngineTests
+    public class TrueSkillEngineTests
 	{
 		[Theory, AutoData]
 		public void Default_Rating_Should_Have_Expected_Default_Values(double initialMean, double initialSd, double conservativeMultiplier)
 		{
 			// Arrange
-			var trueSkillEngine = new TrueSkillEngine(initialMean, initialSd, conservativeMultiplier);
+			var trueSkillEngine = new TwoPlayerTrueSkillEngine(initialMean, initialSd, conservativeMultiplier);
 
 			// Act
 			var rating = trueSkillEngine.GetDefaultRating();
@@ -28,7 +25,7 @@ namespace SmashTracker.Tests
 		public void Should_Update_Both_Ratings(Rating winner, Rating loser)
 		{
 			// Arrange
-			var trueSkillEngine = new TrueSkillEngine();
+			var trueSkillEngine = new TwoPlayerTrueSkillEngine();
 			var winnerInitialValue = new Rating(winner.Mean, winner.StandardDeviation);
 			var loserInitialValue = new Rating(loser.Mean, loser.StandardDeviation);
 
@@ -44,7 +41,7 @@ namespace SmashTracker.Tests
 		public void Winners_Rating_Should_Increase(Rating winner, Rating loser)
 		{
 			// Arrange
-			var trueSkillEngine = new TrueSkillEngine();
+			var trueSkillEngine = new TwoPlayerTrueSkillEngine();
 			var winnerInitialValue = new Rating(winner.Mean, winner.StandardDeviation);
 
 			// Act
@@ -59,7 +56,7 @@ namespace SmashTracker.Tests
 		public void Losers_Rating_Should_Decrease(Rating winner, Rating loser)
 		{
 			// Arrange
-			var trueSkillEngine = new TrueSkillEngine();
+			var trueSkillEngine = new TwoPlayerTrueSkillEngine();
 			var loserInitialValue = new Rating(loser.Mean, loser.StandardDeviation);
 
 			// Act
@@ -75,7 +72,7 @@ namespace SmashTracker.Tests
 		{
 			// Copied from TrueSkillEngine.GetConservativeRating()
 			var expectedConservativeRating = mean - conservativeMultiplier * sd;
-			var trueSkillEngine = new TrueSkillEngine(initialMean: mean, initialStandardDeviation: sd, conservativeRatingMultiplier: conservativeMultiplier);
+			var trueSkillEngine = new TwoPlayerTrueSkillEngine(initialMean: mean, initialStandardDeviation: sd, conservativeRatingMultiplier: conservativeMultiplier);
 			trueSkillEngine.GetConservativeRating(trueSkillEngine.GetDefaultRating()).Should().Be(expectedConservativeRating, "The conservative rating is calculated using the given formula, so it should match when using the given values.");
 		}
 	}
