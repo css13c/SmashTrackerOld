@@ -1,7 +1,5 @@
 # SmashTracker
 
-This application is currently under development.
+This code is obsolete.
 
-This was originally a C# app, but I'm taking another crack at it using Vue and creating a leaner version. I plan to only support Melee for now, but will build the application to be expandable later, to not only other Smash Bros. games, but other fighting games as well, such as Street Fighter and Mortal Kombat.
-
-For posterity and inspection, I'm leaving the old C# code in the repository for now.
+This was the old version of my SmashTracker application. I was going to use WPF and create the whole thing in C#, but I've now changed over to creating this in Vue using Electron. For the current version of this application, see (SmashTracker)[https://github.com/css13c/SmashTracker].
